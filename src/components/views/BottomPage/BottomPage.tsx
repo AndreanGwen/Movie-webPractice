@@ -1,4 +1,4 @@
-import { apiInterstellar } from "@/libs/axios/apiInterstellar";
+import { useApiInterstellar } from "@/libs/axios/apiInterstellar";
 import {
   Button,
   Dropdown,
@@ -9,7 +9,7 @@ import {
 import { FaAward, FaUser } from "react-icons/fa6";
 
 const BottomPage = () => {
-  const movie = apiInterstellar();
+  const movie = useApiInterstellar();
   const writer = movie?.Writer.split(", ");
 
   return (
