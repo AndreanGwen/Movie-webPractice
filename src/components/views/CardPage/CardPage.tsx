@@ -13,6 +13,7 @@ import {
   ModalFooter,
   useDisclosure,
 } from "@heroui/react";
+import Image from "next/image";
 
 const CardPage = () => {
   const [movie, setMovie] = useState<any>(null);
@@ -46,7 +47,7 @@ const CardPage = () => {
     <div className="lg:pl-20 lg:pr-20 pr-5 pl-5">
       <div className="flex lg:gap-16 items-center lg:items-start lg:justify-start  flex-col lg:flex-row gap-6">
         {movie?.Poster && (
-          <img
+          <Image
             src={movie.Poster}
             alt="Interstellar"
             className="rounded-2xl lg:w-[375px] w-44"

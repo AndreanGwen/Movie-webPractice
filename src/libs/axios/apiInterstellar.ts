@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const apiInterstellar = () => {
+export const apiInterstellar = () => {
   const [movie, setMovie] = useState<any>(null);
 
   useEffect(() => {
@@ -19,5 +19,3 @@ const apiInterstellar = () => {
   }, []);
   return movie;
 };
-
-export default apiInterstellar;
