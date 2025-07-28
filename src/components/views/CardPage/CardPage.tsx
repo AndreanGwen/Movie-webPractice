@@ -27,7 +27,7 @@ const CardPage = () => {
 
   useEffect(() => {
     const API_INTERSTELLAR =
-      "http://www.omdbapi.com/?apikey=5060f33c&i=tt0816692";
+      "https://www.omdbapi.com/?apikey=5060f33c&i=tt0816692";
 
     axios
       .get(API_INTERSTELLAR)
