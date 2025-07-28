@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { CiCalendarDate, CiClock2 } from "react-icons/ci";
 import { FaCircle } from "react-icons/fa6";
-import { Button } from "@heroui/react";
+import { Button, Image } from "@heroui/react";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 import { BsThreeDots } from "react-icons/bs";
 import {
@@ -13,7 +13,6 @@ import {
   ModalFooter,
   useDisclosure,
 } from "@heroui/react";
-import Image from "next/image";
 
 const CardPage = () => {
   const [movie, setMovie] = useState<any>(null);
@@ -48,9 +47,11 @@ const CardPage = () => {
       <div className="flex lg:gap-16 items-center lg:items-start lg:justify-start  flex-col lg:flex-row gap-6">
         {movie?.Poster && (
           <Image
-            src={movie.Poster}
+            src={movie?.Poster}
             alt="Interstellar"
-            className="rounded-2xl lg:w-[375px] w-44"
+            className="rounded-2xl "
+            width={375}
+            height={500}
           />
         )}
 

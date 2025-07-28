@@ -1,4 +1,4 @@
-import apiInterstellar from "@/libs/axios/apiInterstellar";
+import { apiInterstellar } from "@/libs/axios/apiInterstellar";
 import {
   Button,
   Dropdown,
