@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { CiCalendarDate, CiClock2 } from "react-icons/ci";
 import { FaCircle } from "react-icons/fa6";
@@ -15,12 +15,21 @@ import {
 } from "@heroui/react";
 import * as motion from "motion/react-client";
 import HTMLContent from "@/components/commons/HTMLContent/HTMLContent";
+import { DarkMode } from "@/context/darkModeContext/darkModeContext";
 
 const CardPage = () => {
   const [movie, setMovie] = useState<any>(null);
   const [isReady, setIsReady] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [backdrop, setBackdrop] = useState("opaque");
+
+  const context = useContext(DarkMode);
+
+  if (!context) {
+    throw new Error("DarkMode context is not provided");
+  }
+
+  const { isDarkMode, setIsDarkMode } = context;
 
   const handleOpen = (backdrop: any) => {
     setBackdrop(backdrop);
@@ -66,36 +75,66 @@ const CardPage = () => {
           )}
 
           <div className="">
-            <p className="text-white lg:text-xl pb-1">{movie?.Year}</p>
-            <h1 className="lg:text-8xl text-white font-semibold lg:pb-5 text-xl">
+            <p
+              className={`${
+                isDarkMode ? "text-white" : "text-black"
+              } lg:text-xl pb-1`}
+            >
+              {movie?.Year}
+            </p>
+            <h1
+              className={`lg:text-8xl ${
+                isDarkMode ? "text-white/70" : "text-black"
+              } font-semibold lg:pb-5 text-xl`}
+            >
               {movie?.Title}
             </h1>
             {genreArrays && (
               <div className="flex text-white/70 gap-4 items-center">
                 {genreArrays.map((genre: string, index: number) => (
                   <div key={index} className="flex items-center gap-2">
-                    <p>{genre}</p>
+                    <p
+                      className={`${isDarkMode ? "text-white" : "text-black"}`}
+                    >
+                      {genre}
+                    </p>
                     {index < genreArrays.length - 1 && <span>&bull;</span>}
                   </div>
                 ))}
               </div>
             )}
-            <p className="max-w-xl text-white/70 lg:pt-5 text-sm lg:text-base">
+            <p
+              className={`max-w-xl ${
+                isDarkMode ? "text-white/70" : "text-black"
+              } lg:pt-5 text-sm lg:text-base`}
+            >
               {movie?.Plot}
             </p>
 
             <div className="pt-5 flex gap-10 lg:pb-12 pb-5">
-              <div className="text-white/70 flex items-center gap-3">
+              <div
+                className={`${
+                  isDarkMode ? "text-white/70" : "text-black"
+                } flex items-center gap-3`}
+              >
                 <CiClock2 />
                 <p className="flex">
                   <HTMLContent number={runTime[0]} className="" /> min.
                 </p>
               </div>
-              <div className="text-white/70 flex items-center gap-3">
+              <div
+                className={`${
+                  isDarkMode ? "text-white/70" : "text-black"
+                } flex items-center gap-3`}
+              >
                 <CiCalendarDate />
                 <p>{movie?.Released}</p>
               </div>
-              <div className="text-white/70 flex items-center gap-1">
+              <div
+                className={`${
+                  isDarkMode ? "text-white/70" : "text-black"
+                } flex items-center gap-1`}
+              >
                 <FaCircle size={8} color="#f31260" />
                 <p>
                   Imdb:{" "}
