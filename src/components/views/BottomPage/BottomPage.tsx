@@ -1,3 +1,4 @@
+import { DarkMode } from "@/context/darkModeContext/darkModeContext";
 import { useApiInterstellar } from "@/libs/axios/apiInterstellar";
 import {
   Button,
@@ -6,30 +7,49 @@ import {
   DropdownMenu,
   DropdownTrigger,
 } from "@heroui/react";
+import { useContext } from "react";
 import { FaAward, FaUser } from "react-icons/fa6";
 
 const BottomPage = () => {
   const movie = useApiInterstellar();
   const writer = movie?.Writer.split(", ");
 
+  const context = useContext(DarkMode);
+
+  if (!context) {
+    throw new Error("DarkMode context is not provided");
+  }
+
+  const { isDarkMode, setIsDarkMode } = context;
+
   return (
     <div
-      className="w-full lg:h-40 lg:pl-20 lg:pr-20  lg:flex items-center justify-between hidden"
-      style={{ backgroundColor: "#111112" }}
+      className={`w-full lg:h-40 lg:pl-20 lg:pr-20  lg:flex items-center justify-between hidden ${
+        isDarkMode ? "bg-[#111112]" : "bg-white"
+      } `}
     >
-      <div className="text-white">
-        <h2 className="text-white/60 text-2xl flex items-center gap-1">
+      <div className="">
+        <h2
+          className={`${
+            isDarkMode ? "text-white" : "text-black"
+          } text-2xl flex items-center gap-1`}
+        >
           <span>
             <FaUser />
           </span>
           Director:
         </h2>
-        <p className="text-white/60 ">{movie?.Director}</p>
+        <p className=" ">{movie?.Director}</p>
       </div>
       <div className="">
         <Dropdown>
           <DropdownTrigger>
-            <Button variant="bordered" className="text-white w-40 flex">
+            <Button
+              variant="bordered"
+              className={`${
+                isDarkMode ? "text-white" : "text-black"
+              } w-40 flex`}
+            >
               Show writers
             </Button>
           </DropdownTrigger>
@@ -42,13 +62,19 @@ const BottomPage = () => {
         </Dropdown>
       </div>
       <div className="lg:block hidden">
-        <h2 className="text-white/60 text-2xl flex items-center gap-1">
+        <h2
+          className={`${
+            isDarkMode ? "text-white" : "text-black"
+          }  text-2xl flex items-center gap-1`}
+        >
           <span>
             <FaAward size={25} />
           </span>
           Awards:
         </h2>
-        <p className="text-white/60 ">{movie?.Awards}</p>
+        <p className={`${isDarkMode ? "text-white" : "text-black"}`}>
+          {movie?.Awards}
+        </p>
       </div>
       <div className="lg:block hidden">
         <Button color="danger" className="w-40 rounded-full">

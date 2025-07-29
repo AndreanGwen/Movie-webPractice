@@ -24,15 +24,27 @@ const BarSearch = () => {
             <p>All Formats</p>
             <FaChevronDown size={10} />
           </div>
-          <div className="text-white lg:flex items-center gap-2 hidden">
+          <div
+            className={`${
+              isDarkMode ? "text-white" : "text-black"
+            } lg:flex items-center gap-2 hidden`}
+          >
             <p>By Date</p>
             <FaChevronDown size={10} />
           </div>
-          <div className="text-white lg:flex items-center gap-2 hidden">
+          <div
+            className={`${
+              isDarkMode ? "text-white" : "text-black"
+            } lg:flex items-center gap-2 hidden`}
+          >
             <p>By category</p>
             <FaChevronDown size={10} />
           </div>
-          <div className="text-white lg:flex items-center gap-2 hidden">
+          <div
+            className={`${
+              isDarkMode ? "text-white" : "text-black"
+            } lg:flex items-center gap-2 hidden`}
+          >
             <p>Coming Soon</p>
           </div>
         </div>
@@ -41,9 +53,10 @@ const BarSearch = () => {
           <input
             type="text"
             className={`bg-transparent border-1 ${
-              isDarkMode ? "border-white" : "border-black"
+              isDarkMode ? "border-white text-white" : "border-black"
             } rounded-lg lg:w-60 lg:h-8 p-1 w-40`}
             placeholder="Search movies"
+            name="search"
           />
         </div>
       </div>

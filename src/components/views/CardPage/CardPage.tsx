@@ -154,8 +154,15 @@ const CardPage = () => {
                 <p>Show Detail</p>
               </Button>
 
-              <div className="text-white lg:flex items-center gap-2 hidden">
-                <BsThreeDots color="white" size={30} />
+              <div
+                className={`${
+                  isDarkMode ? "text-white" : "text-black"
+                } lg:flex items-center gap-2 hidden`}
+              >
+                <BsThreeDots
+                  color={`${isDarkMode ? "white" : "black"}`}
+                  size={30}
+                />
                 <p>More ratings</p>
               </div>
             </div>
