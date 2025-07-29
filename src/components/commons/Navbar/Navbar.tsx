@@ -1,16 +1,21 @@
 import Link from "next/link";
 import { FaVideo } from "react-icons/fa6";
+import { useMediaQuery } from "react-responsive";
 
 const Navbar = () => {
+  const isMobile = useMediaQuery({ maxWidth: 768 });
   return (
     <div className="w-full lg:h-32 h-20 flex items-center lg:pl-20 lg:pr-20 pl-5 pr-5">
       <div className="flex justify-between w-full items-center">
         <Link href="/">
           <div className="flex items-center gap-2">
-            <FaVideo color="white" size={35} />
-            <h1 className="text-white font-bold text-3xl">
+            <FaVideo color="white" size={isMobile ? 30 : 40} />
+            <h1 className="text-white font-bold lg:text-3xl text-xl">
               flex
-              <span className="font-bold text-3xl" style={{ color: "#f31260" }}>
+              <span
+                className="font-bold lg:text-3xl text-xl"
+                style={{ color: "#f31260" }}
+              >
                 ford
               </span>
             </h1>
