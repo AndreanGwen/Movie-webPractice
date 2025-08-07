@@ -1,6 +1,6 @@
 import { DarkMode } from "@/context/darkModeContext/darkModeContext";
-import { Input } from "@heroui/react";
-import { useContext } from "react";
+import { useSearchValue } from "@/context/searchValueContext/searchValueContext";
+import { useContext, useState } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 
 const BarSearch = () => {
@@ -11,9 +11,19 @@ const BarSearch = () => {
   }
 
   const { isDarkMode, setIsDarkMode } = context;
+  const { isValue, setIsValue } = useSearchValue();
+  const [localValue, setIsLocalValue] = useState("");
+
+  console.log(isValue);
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key == "Enter") {
+      setIsValue(localValue);
+    }
+  };
 
   return (
-    <div className="lg:pt-10 lg:pr-16 lg:pl-16 lg:pb-5 pt-5 pr-3 pl-3 pb-5">
+    <div className="pt-5 pb-5 pl-3 pr-3 lg:pt-10 lg:pr-16 lg:pl-16 lg:pb-5">
       <div className="flex justify-between">
         <div className="flex gap-16 pb-5">
           <div
@@ -57,12 +67,15 @@ const BarSearch = () => {
             } rounded-lg lg:w-60 lg:h-8 p-1 w-40`}
             placeholder="Search movies"
             name="search"
+            value={localValue}
+            onChange={(e) => setIsLocalValue(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
         </div>
       </div>
 
-      <div className="flex lg:pt-0 pt-1">
-        <div className="border-b-2 w-1/12 border-danger" />
+      <div className="flex pt-1 lg:pt-0">
+        <div className="w-1/12 border-b-2 border-danger" />
         <div
           className={`border-b-2 w-11/12  ${
             isDarkMode ? "border-white" : "border-black"

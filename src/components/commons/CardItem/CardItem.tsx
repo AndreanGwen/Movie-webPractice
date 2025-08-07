@@ -18,17 +18,20 @@ export default function CardItem({ element }: { element: any }) {
 
   const { isDarkMode, setIsDarkMode } = context;
 
+  const posterUrl =
+    element.Poster !== "N/A" ? element.Poster : "/images/NA.jpg";
+
   return (
     <motion.div
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5 }}
-      className="lg:w-60 lg:h-80 p-2 rounded-xl flex flex-col gap-3 overflow-auto h-56 w-40 justify-between"
+      className="lg:w-60 lg:h-[21rem] p-2 rounded-xl flex flex-col gap-3 overflow-auto h-56 w-40 justify-between"
     >
       <div className="w-full flex justify-center">
         <Image
-          src={element.Poster}
+          src={posterUrl}
           alt="poster"
           className="object-cover rounded-xl"
           height={isMobile ? 150 : 20}

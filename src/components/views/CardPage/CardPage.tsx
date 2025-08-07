@@ -56,10 +56,10 @@ const CardPage = () => {
   const runTime = movie?.Runtime.split(" ");
 
   return (
-    <div className="lg:pl-20 lg:pr-20 pr-5 pl-5">
+    <div className="pl-5 pr-5 lg:pl-20 lg:pr-20">
       {isReady && (
         <motion.div
-          className="flex lg:gap-16 items-center lg:items-start lg:justify-start  flex-col lg:flex-row gap-6"
+          className="flex flex-col items-center gap-6 lg:gap-16 lg:items-start lg:justify-start lg:flex-row"
           initial={{ x: -100 }}
           transition={{ duration: 0.5 }}
           animate={{ opacity: 1, x: 0 }}
@@ -68,7 +68,7 @@ const CardPage = () => {
             <Image
               src={movie?.Poster}
               alt="Interstellar"
-              className="rounded-2xl lg:block hidden"
+              className="hidden rounded-2xl lg:block"
               width={375}
               height={500}
             />
@@ -90,7 +90,7 @@ const CardPage = () => {
               {movie?.Title}
             </h1>
             {genreArrays && (
-              <div className="flex text-white/70 gap-4 items-center">
+              <div className="flex items-center gap-4 text-white/70">
                 {genreArrays.map((genre: string, index: number) => (
                   <div key={index} className="flex items-center gap-2">
                     <p
@@ -111,7 +111,7 @@ const CardPage = () => {
               {movie?.Plot}
             </p>
 
-            <div className="pt-5 flex gap-10 lg:pb-12 pb-5">
+            <div className="flex gap-10 pt-5 pb-5 lg:pb-12">
               <div
                 className={`${
                   isDarkMode ? "text-white/70" : "text-black"
@@ -143,10 +143,10 @@ const CardPage = () => {
               </div>
             </div>
 
-            <div className="flex lg:items-center lg:justify-start justify-end gap-14 pb-5 lg:pb-0">
+            <div className="flex justify-end pb-5 lg:items-center lg:justify-start gap-14 lg:pb-0">
               <Button
                 color="danger"
-                className="rounded-full lg:w-40 z-10 "
+                className="z-10 rounded-full lg:w-40 "
                 key={backdrop}
                 onPress={() => handleOpen(backdrop)}
               >
@@ -178,7 +178,7 @@ const CardPage = () => {
                 {movie?.Title}
               </ModalHeader>
               <ModalBody className="text-white">
-                <div className="flex  gap-2">
+                <div className="flex gap-2">
                   <p>Year: {movie?.Year}</p>
                   <p>Rated: {movie?.Rated}</p>
                   <p>Released: {movie?.Released}</p>
@@ -209,7 +209,7 @@ const CardPage = () => {
                   <p>{movie?.Language}</p>
                 </div>
 
-                <div className="flex text-sm gap-2">
+                <div className="flex gap-2 text-sm">
                   <p>
                     Metascore: <b>{movie?.Metascore}</b>
                   </p>
