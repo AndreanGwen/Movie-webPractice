@@ -9,7 +9,7 @@ export const useSearchMovies = () => {
   useEffect(() => {
     const fetchData = async () => {
       const API_SEARCH = `https://www.omdbapi.com/?apikey=5060f33c&s=${
-        isValue ? isValue : "avengers"
+        isValue ? isValue : "naruto"
       }`;
 
       try {

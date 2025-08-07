@@ -38,7 +38,7 @@ const CardPage = () => {
 
   useEffect(() => {
     const API_INTERSTELLAR =
-      "https://www.omdbapi.com/?apikey=5060f33c&i=tt0816692";
+      "https://www.omdbapi.com/?apikey=5060f33c&i=tt0988824";
 
     axios
       .get(API_INTERSTELLAR)
@@ -173,11 +173,17 @@ const CardPage = () => {
       <Modal backdrop="opaque" isOpen={isOpen} onClose={onClose}>
         <ModalContent>
           {(onClose) => (
-            <div className="bg-black">
-              <ModalHeader className="flex flex-col gap-1 text-white">
+            <div className={`${isDarkMode ? "bg-black" : "bg-white"}`}>
+              <ModalHeader
+                className={`flex flex-col gap-1 ${
+                  isDarkMode ? "text-white" : "text-black"
+                }`}
+              >
                 {movie?.Title}
               </ModalHeader>
-              <ModalBody className="text-white">
+              <ModalBody
+                className={`${isDarkMode ? "text-white" : "text-black"}`}
+              >
                 <div className="flex gap-2">
                   <p>Year: {movie?.Year}</p>
                   <p>Rated: {movie?.Rated}</p>
