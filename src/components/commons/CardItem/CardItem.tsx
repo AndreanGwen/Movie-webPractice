@@ -65,7 +65,7 @@ export default function CardItem({ element }: { element: any }) {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5 }}
-      className="lg:w-[14rem] lg:h-[345px] p-2 rounded-xl flex flex-col gap-3 overflow-auto h-[18rem] w-40 justify-between"
+      className="lg:w-[14rem] lg:h-[345px] p-2 rounded-xl flex flex-col gap-3 overflow-auto h-[20rem] w-40 justify-between"
     >
       <div className="w-full flex justify-center">
         <Image
