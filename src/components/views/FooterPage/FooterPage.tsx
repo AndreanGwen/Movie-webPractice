@@ -25,15 +25,17 @@ const FooterPage = () => {
           isDarkMode ? "border-white/30" : "border-black"
         } flex items-center h-full`}
       >
-        <div className="w-full flex lg:justify-between justify-end items-center">
-          <div className="lg:block hidden">
-            <Icon
-              isMobileTrue="20"
-              isMobileFalse="30"
-              font="text-xl"
-              lgFont="text-xl"
-            />
-            <p className={`${isDarkMode ? "text-white/60" : "text-black"}`}>
+        <div className="w-full flex lg:justify-between justify-between items-center">
+          <div className="">
+            <div className="lg:block hidden">
+              <Icon
+                isMobileTrue="20"
+                isMobileFalse="30"
+                font="text-xl"
+                lgFont="text-xl"
+              />
+            </div>
+            <p className={`${isDarkMode ? "text-white/60" : "text-black"} `}>
               &copy; 2025,fordFlex
             </p>
           </div>
@@ -87,23 +89,30 @@ const FooterPage = () => {
           </div>
 
           <div className="flex gap-5">
-            <div
-              className={`w-10 h-10 flex items-center justify-center rounded-full border-2 ${
-                isDarkMode ? "border-white" : "border-black"
-              }`}
-            >
-              <FaInstagram
-                size={23}
-                color={`${isDarkMode ? "white" : "black"}`}
-              />
-            </div>
-            <div
-              className={`w-10 h-10 flex items-center justify-center rounded-full border-2 ${
-                isDarkMode ? "border-white" : "border-black"
-              }`}
-            >
-              <FaGithub size={23} color={`${isDarkMode ? "white" : "black"}`} />
-            </div>
+            <Link href="https://www.instagram.com/andrstry_gwn/">
+              <div
+                className={`w-10 h-10 flex items-center justify-center rounded-full border-2 ${
+                  isDarkMode ? "border-white" : "border-black"
+                }`}
+              >
+                <FaInstagram
+                  size={23}
+                  color={`${isDarkMode ? "white" : "black"}`}
+                />
+              </div>
+            </Link>
+            <Link href="https://github.com/AndreanGwen">
+              <div
+                className={`w-10 h-10 flex items-center justify-center rounded-full border-2 ${
+                  isDarkMode ? "border-white" : "border-black"
+                }`}
+              >
+                <FaGithub
+                  size={23}
+                  color={`${isDarkMode ? "white" : "black"}`}
+                />
+              </div>
+            </Link>
             <div
               className={`w-10 h-10 flex items-center justify-center rounded-full border-2 ${
                 isDarkMode ? "border-white" : "border-black"
