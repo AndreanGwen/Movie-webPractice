@@ -38,8 +38,6 @@ export default function CardItem({ element }: { element: any }) {
   const [backdrop, setBackdrop] = useState("opaque");
   const [movieTitle, setMovieTitle] = useState("");
 
-  console.log(movieTitle);
-
   useEffect(() => {
     if (!movieTitle) return;
     const API_SEARCH_DETAIL = `https://www.omdbapi.com/?apikey=5060f33c&i=${movieTitle}`;

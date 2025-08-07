@@ -5,6 +5,7 @@ import { BsMoon } from "react-icons/bs";
 import { FaVideo } from "react-icons/fa6";
 import { IoSunnyOutline } from "react-icons/io5";
 import { useMediaQuery } from "react-responsive";
+import Icon from "../Icon";
 
 interface Props {
   isDarkMode: boolean;
@@ -24,28 +25,12 @@ const Navbar = () => {
   return (
     <div className="w-full lg:h-32 h-20 flex items-center lg:pl-20 lg:pr-20 pl-5 pr-5">
       <div className="flex justify-between w-full items-center">
-        <Link href="/">
-          <div className="flex items-center gap-2">
-            <FaVideo
-              color={`${isDarkMode ? "white" : "black"}`}
-              size={isMobile ? 30 : 40}
-            />
-            <h1
-              className={`${
-                isDarkMode ? "text-white" : "text-black"
-              } font-bold lg:text-3xl text-xl`}
-            >
-              flex
-              <span
-                className="font-bold lg:text-3xl text-xl"
-                style={{ color: "#f31260" }}
-              >
-                ford
-              </span>
-            </h1>
-          </div>
-        </Link>
-
+        <Icon
+          isMobileTrue="30"
+          isMobileFalse="40"
+          font="text-xl"
+          lgFont="text-3xl"
+        />
         <div className="lg:flex gap-20  items-center">
           <Link href="/main">
             <p

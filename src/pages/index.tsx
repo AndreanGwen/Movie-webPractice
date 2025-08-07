@@ -2,6 +2,7 @@ import Navbar from "@/components/commons/Navbar";
 import PageHead from "@/components/commons/PageHead";
 import BottomPage from "@/components/views/BottomPage";
 import CardPage from "@/components/views/CardPage";
+import FooterPage from "@/components/views/FooterPage";
 import MenuPage from "@/components/views/MenuPage";
 import { DarkMode } from "@/context/darkModeContext/darkModeContext";
 import { useContext } from "react";
@@ -43,6 +44,10 @@ export default function Home() {
         className={`w-full h-fit ${isDarkMode ? "bg-[#151717]" : "bg-white"}`}
       >
         <MenuPage />
+      </div>
+      {/* Footer */}
+      <div className="">
+        <FooterPage />
       </div>
     </>
   );
