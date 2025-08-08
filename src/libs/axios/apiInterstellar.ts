@@ -6,7 +6,7 @@ export const useApiInterstellar = () => {
 
   useEffect(() => {
     const API_INTERSTELLAR =
-      "https://www.omdbapi.com/?apikey=5060f33c&i=tt0816692";
+      "https://www.omdbapi.com/?apikey=5060f33c&i=tt0988824";
 
     axios
       .get(API_INTERSTELLAR)

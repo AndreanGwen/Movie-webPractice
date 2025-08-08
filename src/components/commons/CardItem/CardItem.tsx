@@ -63,7 +63,7 @@ export default function CardItem({ element }: { element: any }) {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5 }}
-      className="lg:w-[14rem] lg:h-[345px] p-2 rounded-xl flex flex-col gap-3 overflow-auto h-[20rem] w-40 justify-between"
+      className="lg:w-[14rem] lg:h-[345px] p-2 rounded-xl flex flex-col gap-3 overflow-auto h-[20rem] w-40 justify-between shadow-md"
     >
       <div className="w-full flex justify-center">
         <Image
@@ -114,45 +114,50 @@ export default function CardItem({ element }: { element: any }) {
                 className={`${isDarkMode ? "text-white" : "text-black"}`}
               >
                 <div className="flex gap-2">
-                  <p>Year: {movie?.Year}</p>
-                  <p>Rated: {movie?.Rated}</p>
-                  <p>Released: {movie?.Released}</p>
+                  <p>Year: {movie?.Year ? movie.Year : "Request data"}</p>
+                  <p>Rated: {movie?.Rated ? movie.Rated : "Request data"}</p>
+                  <p>
+                    Released:{" "}
+                    {movie?.Released ? movie.Released : "Request data"}
+                  </p>
                 </div>
 
                 <div className="">
                   <p>Plot: </p>
-                  <p>{movie?.Plot}</p>
+                  <p>{movie?.Plot ? movie.Plot : "Request data"}</p>
                 </div>
 
                 <div className="lg:hidden">
                   <p>Director: </p>
-                  <p>{movie?.Director}</p>
+                  <p>{movie?.Director ? movie.Director : "Request Data"}</p>
                 </div>
 
                 <div className="">
                   <p>Actors: </p>
-                  <p>{movie?.Actors}</p>
+                  <p>{movie?.Actors ? movie.Actors : "Request Data"}</p>
                 </div>
 
                 <div className="">
                   <p>Country: </p>
-                  <p>{movie?.Country}</p>
+                  <p>{movie?.Country ? movie.Country : "Request Data"}</p>
                 </div>
 
                 <div className="">
                   <p>Language: </p>
-                  <p>{movie?.Language}</p>
+                  <p>{movie?.Language ? movie.Language : "Request Data"}</p>
                 </div>
 
                 <div className="flex gap-2 text-sm">
                   <p>
-                    Metascore: <b>{movie?.Metascore}</b>
+                    Metascore: <b>{movie?.Metascore ? movie.Metascore : "0"}</b>
                   </p>
                   <p>
-                    imdb Rating: <b>{movie?.imdbRating}</b>
+                    imdb Rating:{" "}
+                    <b>{movie?.imdbRating ? movie.imdbRating : "0"}</b>
                   </p>
                   <p>
-                    imdb Votes: <b>{movie?.imdbVotes}</b>
+                    imdb Votes:{" "}
+                    <b>{movie?.imdbVotes ? movie.imdbVotes : "0"}</b>
                   </p>
                 </div>
               </ModalBody>

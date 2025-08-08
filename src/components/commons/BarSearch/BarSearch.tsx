@@ -14,8 +14,6 @@ const BarSearch = () => {
   const { isValue, setIsValue } = useSearchValue();
   const [localValue, setIsLocalValue] = useState("");
 
-  console.log(isValue);
-
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key == "Enter") {
       setIsValue(localValue);
